@@ -1,148 +1,153 @@
-*{
+/* Global Reset */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'poppins', sans-serif;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.container{
+/* Container Styling */
+.container {
     width: 100%;
     min-height: 100vh;
-    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url(img/background\ \(2\).jpg);
-    background-position: right;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    padding: 20px;
 }
 
-.todo{
+/* To-Do List Box */
+.todo {
+    max-width: 600px;
     width: 100%;
-    max-width: 540px;
-    background: #fff;
-    margin: 100px auto 20px;
-    padding: 40px 30px 70px;
-    border-radius: 10px;
-}
-.todo .date{
-    padding: 10px;
-    border: 2px solid #4CAF50; /* Warna border */
-    border-radius: 8px; /* Membuat sudut melengkung */
-    background-color: #f9f9f9; /* Warna background */
-    font-family: 'Arial', sans-serif; /* Font yang digunakan */
-    font-size: 16px;
-    color: #333; /* Warna teks */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transisi animasi */
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 40px 30px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
-.todo h2 img{
-    width: 40px;
+
+/* Hero Image */
+.hero-icon {
+    width: 100px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+/* Title */
+.todo h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+.todo h2 img {
+    width: 30px;
     margin-left: 10px;
 }
 
-
-.todo h2{
-    color: rgb(0, 0, 0);
+/* Input Row */
+.row {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.row{
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    background: #e0e0e0;
+    background: #f4f4f4;
     border-radius: 30px;
-    padding-left: 20px;
-    margin-bottom: 25px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-input{
+input {
     flex: 1;
+    padding: 12px 20px;
     border: none;
     outline: none;
+    font-size: 16px;
     background: transparent;
-    padding: 10px;
-    font-weight: 14px;
 }
 
-button{
+button {
+    padding: 12px 25px;
     border: none;
     outline: none;
-    padding: 16px 50px;
-    background: #0066ff;
+    background: #007bff;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 40px;
+    transition: background-color 0.3s ease;
 }
 
-ul li{
+button:hover {
+    background: #0056b3;
+}
+
+/* To-Do List Items */
+ul {
     list-style: none;
-    font-size: 17px;
-    padding: 12px 8px 12px 50px;
-    user-select: none;
-    cursor: pointer;
-    position: relative;
-
+    padding: 0;
 }
 
-ul li::before{
-    content: '';
-    position: absolute;
-    height: 28px;
-    width: 28px;
-    border-radius: 50%;
-    background-image: url(img/square.png);
-    background-size: cover;
-    background-position: center;
-    top: 12px;
-    left: 8px;
+ul li {
+    background: #e0f7fa;
+    margin-bottom: 10px;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease;
 }
 
-ul li.checked{
-    color: #555;
+ul li:hover {
+    transform: translateX(10px);
+}
+
+ul li.checked {
     text-decoration: line-through;
+    background: #c8e6c9;
+    color: #555;
 }
 
-ul li.checked::before{
-    background-image: url(img/checklist.png);
+/* Delete Button */
+ul li span {
+    cursor: pointer;
+    background: #ff5252;
+    color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-ul li span{
-position: absolute;
-right: 0;
-top: 5px;
-width: 40px;
-height: 40px;
-font-size: 22px;
-color: #555;
-line-height: 40px;
-text-align: center;
-border-radius: 50%;
+ul li span:hover {
+    background: #e53935;
 }
 
-ul li span:hover{
-    background: #edeef5;
-}
-
-.todo img{
-    display: block;
-    margin: 0 auto;
-    width: 250px;
-    padding-bottom: 20px;
-}
-
-.footer{
-    text-align: center;
+/* Footer */
+.footer {
     margin-top: 20px;
-    
+    font-size: 16px;
+    color: #555;
+    font-style: italic;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
 }
